@@ -12,5 +12,8 @@ while True:
     products.append([name, price]) #取代前四個CODE
 print(products)
 
-products[0][0] #二為取商品
-products[1][1] 
+#products[0][0] #二為取商品
+#products[1][1] #取出商品資訊
+
+for p in products:
+    print(p[0])
