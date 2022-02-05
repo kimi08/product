@@ -1,19 +1,38 @@
+import os #operating system
+
+if os.path.isfile('products.cvs'):
+    print('yeah! 找到檔案啦!')
+else:
+    print('找不到檔案.....')
+
+
+
+#讀取檔案
 products = []
+with open ('products.csv', 'r') as f :
+    for line in f:
+        if '商品,價格' in line:
+            continue #繼續
+        name, price = line.strip().split(',')
+        products.append([name, price])
+
+print(products)
+
+
+#請使用者輸入
 while True:
     name = input('請輸入產品名稱: ')
     if name == 'q':
         break
     price = input('請輸入商品價格:')
-    # p = []
-    # p.append(name)
-    # p.append(price)
-    p = [name, price] #取代來前三個CODE
-    # products.append(p)
-    products.append([name, price]) #取代前四個CODE
+    p = [name, price] 
+    products.append([name, price]) 
 print(products)
 
 #products[0][0] #二為取商品
 #products[1][1] #取出商品資訊
+
+#印出
 
 for p in products:
     print(p[0], '的價格是', p[1])
